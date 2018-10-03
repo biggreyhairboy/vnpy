@@ -58,6 +58,9 @@ build/Makefile
 .python-version
 .gitignore
 
+# csv 文件
+*.csv
+
 
 
 
