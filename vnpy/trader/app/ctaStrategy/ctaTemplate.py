@@ -530,7 +530,9 @@ class ArrayManager(object):
     #----------------------------------------------------------------------
     def sma(self, n, array=False):
         """简单均线"""
-        result = talib.SMA(self.close, n)
+        result = talib.
+
+        (self.close, n)
         if array:
             return result
         return result[-1]

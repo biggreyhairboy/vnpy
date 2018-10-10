@@ -23,17 +23,17 @@ class Bar15TripleMAStrategy(CtaTemplate):
     author = u'Patrick'
 
     # 策略参数
-    fastWindow = 5  # 快速均线参数
-    midWindow  = 10  # 中速均线参数
-    slowWindow = 20  # 慢速均线参数
+    fastWindow = 75  # 快速均线参数
+    midWindow  = 150  # 中速均线参数  15 * 10
+    slowWindow = 300  # 慢速均线参数  15 * 20
     initDays = 5  # 初始化数据所用的天数
 
     # 策略变量
     fastMa0 = EMPTY_FLOAT  # 当前最新的快速EMA
     fastMa1 = EMPTY_FLOAT  # 上一根的快速EMA
 
-    midMa0 = EMPTY_FLOAT  # 当前最新的快速EMA
-    midMa1 = EMPTY_FLOAT  # 上一根的快速EMA
+    midMa0 = EMPTY_FLOAT
+    midMa1 = EMPTY_FLOAT
 
     slowMa0 = EMPTY_FLOAT
     slowMa1 = EMPTY_FLOAT
