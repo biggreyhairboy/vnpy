@@ -9,7 +9,7 @@ from __future__ import division
 from vnpy.trader.app.ctaStrategy.ctaBacktesting import BacktestingEngine, MINUTE_DB_NAME
 
 if __name__ == '__main__':
-    from vnpy.trader.app.ctaStrategy.strategy.strategyDoubleMa import DoubleMaStrategy
+    from vnpy.trader.app.ctaStrategy.strategy.strategyBar15TripleMA import Bar15TripleMAStrategy
 
     # 创建回测引擎
     engine = BacktestingEngine()
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # 在引擎中创建策略对象
     d = {}
-    engine.initStrategy(DoubleMaStrategy, d)
+    engine.initStrategy(Bar15TripleMAStrategy, d)
 
     # 开始跑回测
     engine.runBacktesting()

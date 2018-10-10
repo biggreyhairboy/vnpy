@@ -847,15 +847,15 @@ class BacktestingEngine(object):
     
         # 绘图
         fig = plt.figure(figsize=(10, 16))
-        
+
         pCapital = plt.subplot(4, 1, 1)
         pCapital.set_ylabel("capital")
         pCapital.plot(d['capitalList'], color='r', lw=0.8)
-        
+
         pDD = plt.subplot(4, 1, 2)
         pDD.set_ylabel("DD")
         pDD.bar(range(len(d['drawdownList'])), d['drawdownList'], color='g')
-        
+
         pPnl = plt.subplot(4, 1, 3)
         pPnl.set_ylabel("pnl")
         pPnl.hist(d['pnlList'], bins=50, color='c')
@@ -872,7 +872,7 @@ class BacktestingEngine(object):
         plt.sca(pPos)
         plt.tight_layout()
         plt.xticks(xindex, tradeTimeIndex, rotation=30)  # 旋转15
-        
+
         plt.show()
     
     #----------------------------------------------------------------------
