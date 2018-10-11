@@ -134,7 +134,7 @@ class Bar15TripleMAStrategy(CtaTemplate):
         crossBelow = False
         if self.fastMa0 > self.slowMa0 and self.midMa0 > self.slowMa0:
             # crossOver = True
-            crossOver = self.fastMa0 > self.midMa0
+            crossOver = self.midMa0 > self.slowMa0
 
         if self.fastMa0 < self.slowMa0 and self.midMa0 < self.slowMa0:
             # crossOver = True
