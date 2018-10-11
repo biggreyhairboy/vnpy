@@ -845,35 +845,35 @@ class BacktestingEngine(object):
         self.output(u'亏损交易平均值\t%s' %formatNumber(d['averageLosing']))
         self.output(u'盈亏比：\t%s' %formatNumber(d['profitLossRatio']))
     
-        # 绘图
-        fig = plt.figure(figsize=(10, 16))
-        
-        pCapital = plt.subplot(4, 1, 1)
-        pCapital.set_ylabel("capital")
-        pCapital.plot(d['capitalList'], color='r', lw=0.8)
-        
-        pDD = plt.subplot(4, 1, 2)
-        pDD.set_ylabel("DD")
-        pDD.bar(range(len(d['drawdownList'])), d['drawdownList'], color='g')
-        
-        pPnl = plt.subplot(4, 1, 3)
-        pPnl.set_ylabel("pnl")
-        pPnl.hist(d['pnlList'], bins=50, color='c')
-
-        pPos = plt.subplot(4, 1, 4)
-        pPos.set_ylabel("Position")
-        if d['posList'][-1] == 0:
-            del d['posList'][-1]
-        tradeTimeIndex = [item.strftime("%m/%d %H:%M:%S") for item in d['tradeTimeList']]
-        xindex = np.arange(0, len(tradeTimeIndex), np.int(len(tradeTimeIndex)/10))
-        tradeTimeIndex = map(lambda i: tradeTimeIndex[i], xindex)
-        pPos.plot(d['posList'], color='k', drawstyle='steps-pre')
-        pPos.set_ylim(-1.2, 1.2)
-        plt.sca(pPos)
-        plt.tight_layout()
-        plt.xticks(xindex, tradeTimeIndex, rotation=30)  # 旋转15
-        
-        plt.show()
+        # # 绘图
+        # fig = plt.figure(figsize=(10, 16))
+        #
+        # pCapital = plt.subplot(4, 1, 1)
+        # pCapital.set_ylabel("capital")
+        # pCapital.plot(d['capitalList'], color='r', lw=0.8)
+        #
+        # pDD = plt.subplot(4, 1, 2)
+        # pDD.set_ylabel("DD")
+        # pDD.bar(range(len(d['drawdownList'])), d['drawdownList'], color='g')
+        #
+        # pPnl = plt.subplot(4, 1, 3)
+        # pPnl.set_ylabel("pnl")
+        # pPnl.hist(d['pnlList'], bins=50, color='c')
+        #
+        # pPos = plt.subplot(4, 1, 4)
+        # pPos.set_ylabel("Position")
+        # if d['posList'][-1] == 0:
+        #     del d['posList'][-1]
+        # tradeTimeIndex = [item.strftime("%m/%d %H:%M:%S") for item in d['tradeTimeList']]
+        # xindex = np.arange(0, len(tradeTimeIndex), np.int(len(tradeTimeIndex)/10))
+        # tradeTimeIndex = map(lambda i: tradeTimeIndex[i], xindex)
+        # pPos.plot(d['posList'], color='k', drawstyle='steps-pre')
+        # pPos.set_ylim(-1.2, 1.2)
+        # plt.sca(pPos)
+        # plt.tight_layout()
+        # plt.xticks(xindex, tradeTimeIndex, rotation=30)  # 旋转15
+        #
+        # plt.show()
     
     #----------------------------------------------------------------------
     def clearBacktestingResult(self):
