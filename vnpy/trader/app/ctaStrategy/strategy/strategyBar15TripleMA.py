@@ -24,9 +24,15 @@ class Bar15TripleMAStrategy(CtaTemplate):
 
     # 策略参数
     fastWindow = 75  # 快速均线参数
-    midWindow  = 150  # 中速均线参数  15 * 10
+    midWindow = 150  # 中速均线参数  15 * 10
     slowWindow = 300  # 慢速均线参数  15 * 20
     initDays = 5  # 初始化数据所用的天数
+
+    # # 策略参数
+    # fastWindow = 10  # 快速均线参数
+    # midWindow = 30  # 中速均线参数  15 * 10
+    # slowWindow = 101  # 慢速均线参数  15 * 20
+    # initDays = 5  # 初始化数据所用的天数
 
     # 策略变量
     fastMa0 = EMPTY_FLOAT  # 当前最新的快速EMA
@@ -127,11 +133,11 @@ class Bar15TripleMAStrategy(CtaTemplate):
         crossOver  = False
         crossBelow = False
         if self.fastMa0 > self.slowMa0 and self.midMa0 > self.slowMa0:
-            crossOver = True
+            # crossOver = True
             crossOver = self.fastMa0 > self.midMa0
 
         if self.fastMa0 < self.slowMa0 and self.midMa0 < self.slowMa0:
-            crossOver = True
+            # crossOver = True
             crossBelow = self.fastMa0 < self.midMa0
 
         # 所有的委托均以K线收盘价委托（这里有一个实盘中无法成交的风险，考虑添加对模拟市价单类型的支持）
@@ -141,7 +147,7 @@ class Bar15TripleMAStrategy(CtaTemplate):
                 self.buy(bar.close, 1)
         else:
             # 有多头的话平仓
-            if self.pos != 0:
+            if self.pos > 0:
                 self.sell(bar.close, 1)
 
         if crossBelow:
@@ -149,7 +155,7 @@ class Bar15TripleMAStrategy(CtaTemplate):
                 self.short(bar.close, 1)
         else:
             # 有空头的话平仓
-            if self.pos != 0:
+            if self.pos < 0:
                 self.cover(bar.close, 1)
 
         # 发出状态更新事件
