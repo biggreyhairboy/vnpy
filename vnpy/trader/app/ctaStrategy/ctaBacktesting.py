@@ -831,6 +831,10 @@ class BacktestingEngine(object):
         self.output('-' * 30)
         self.output(u'第一笔交易：\t%s' % d['timeList'][0])
         self.output(u'最后一笔交易：\t%s' % d['timeList'][-1])
+        import numpy as np
+        from pandas import Series
+        tradetimeseries = Series(d['tradeTimeList'])
+        tradetimeseries.to_csv('tradetime.csv')
         
         self.output(u'总交易次数：\t%s' % formatNumber(d['totalResult']))        
         self.output(u'总盈亏：\t%s' % formatNumber(d['capital']))

@@ -28,6 +28,10 @@ class Bar15TripleMAStrategy(CtaTemplate):
     slowWindow = 300  # 慢速均线参数  15 * 20
     initDays = 5  # 初始化数据所用的天数
 
+    #todo 到处详细的下单记录，对照K线进行检验
+    #todo 均价考虑成交量
+    #todo 考虑其他指标的均线
+    #todo 实盘均线数据跑起来
     # # 策略参数
     # fastWindow = 10  # 快速均线参数
     # midWindow = 30  # 中速均线参数  15 * 10
